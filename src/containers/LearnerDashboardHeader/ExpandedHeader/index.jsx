@@ -38,7 +38,7 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.course)}
         </Button>
-        <Button
+        {/* <Button
           as="a"
           href={urls.baseAppUrl(courseSearchUrl)}
           variant="inverse-primary"
@@ -46,7 +46,7 @@ export const ExpandedHeader = () => {
           onClick={exploreCoursesClick}
         >
           {formatMessage(messages.discoverNew)}
-        </Button>
+        </Button> */}
         <span className="flex-grow-1" />
         <Button
           as="a"
