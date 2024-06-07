@@ -28,15 +28,10 @@ export const useInitializeApp = () => {
   return module.useNetworkRequest(api.initializeList, {
     requestKey: RequestKeys.initialize,
     onSuccess: ({ data }) => {
-      loadData(removePassingCourses(data));
+      loadData(data);
     },
   });
 };
-
-function removePassingCourses(data) {
-  data.courses = data.courses.filter(course => !course.gradeData.isPassing);
-  return data;
-}
 
 export const useNewEntitlementEnrollment = (cardId) => {
   const { uuid } = reduxHooks.useCardEntitlementData(cardId);

@@ -40,7 +40,12 @@ export const visibleList = (state, {
   pageSize,
 }) => {
   const courses = Object.values(simpleSelectors.courseData(state));
-  const list = module.currentList(courses, { sortBy, filters });
+  let list = module.currentList(courses, { sortBy, filters });
+
+  if (filters.includes("done")) {
+    list = list.filter(course => !course.gradeData.isPassing);
+  }
+
   const pageNumber = simpleSelectors.pageNumber(state);
 
   if (pageSize === 0) {
