@@ -43,7 +43,7 @@ export const visibleList = (state, {
   let list = module.currentList(courses, { sortBy, filters });
 
   if (filters.includes("done")) {
-    list = [...list, courses.filter(course => course.gradeData.isPassing)];
+    list = [...list, ...courses.filter(course => course.gradeData.isPassing)];
   }
 
   const pageNumber = simpleSelectors.pageNumber(state);
