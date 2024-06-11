@@ -13,7 +13,6 @@ export const sortFn = (transform, { reverse }) => (v1, v2) => {
 export const courseFilters = StrictDict({
   [FilterKeys.notEnrolled]: (course) => !course.enrollment.isEnrolled,
   [FilterKeys.done]: (course) => course.courseRun !== null && course.courseRun.isArchived,
-  [FilterKeys.upgraded]: (course) => course.enrollment.isVerified,
   [FilterKeys.inProgress]: (course) => course.enrollment.hasStarted,
   [FilterKeys.notStarted]: (course) => !course.enrollment.hasStarted,
 });
@@ -43,7 +42,13 @@ export const visibleList = (state, {
   let list = module.currentList(courses, { sortBy, filters });
 
   if (filters.includes("done")) {
-    list = [...list, ...courses.filter(course => course.gradeData.isPassing)];
+    courses.forEach(course => {
+        if (course.gradeData.isPassing && list.filter(item => item.course.courseName == course.course.courseName).length <= 0) {
+            list.push(course)
+        }
+    });
+  } else if (filters.includes("inProgress")) {
+      list = courses.filter(course => course.gradeData.isPassing != true || (!course.courseRun.endDate || new Date(course.courseRun.endDate) > new Date()));
   }
 
   const pageNumber = simpleSelectors.pageNumber(state);

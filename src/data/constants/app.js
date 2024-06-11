@@ -14,7 +14,6 @@ export const FilterKeys = StrictDict({
   notStarted: 'notStarted',
   done: 'done',
   notEnrolled: 'notEnrolled',
-  upgraded: 'upgraded',
 });
 
 export const ListPageSize = 25;
