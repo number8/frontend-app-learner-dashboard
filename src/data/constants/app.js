@@ -13,7 +13,6 @@ export const FilterKeys = StrictDict({
   inProgress: 'inProgress',
   notStarted: 'notStarted',
   done: 'done',
-  notEnrolled: 'notEnrolled',
 });
 
 export const ListPageSize = 25;

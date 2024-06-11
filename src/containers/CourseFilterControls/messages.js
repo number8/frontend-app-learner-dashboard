@@ -9,7 +9,7 @@ const messages = defineMessages({
   inProgress: {
     id: 'learner-dash.courseListFilters.inProgress',
     description: 'in-progress filter checkbox label for course list filters',
-    defaultMessage: 'In-Progress',
+    defaultMessage: 'In Progress / Pending',
   },
   notStarted: {
     id: 'learner-dash.courseListFilters.notStarted',

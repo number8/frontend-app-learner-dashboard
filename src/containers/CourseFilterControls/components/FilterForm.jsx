@@ -13,7 +13,6 @@ export const filterOrder = [
   FilterKeys.inProgress,
   FilterKeys.notStarted,
   FilterKeys.done,
-  FilterKeys.notEnrolled,
 ];
 
 export const FilterForm = ({

@@ -11,7 +11,6 @@ export const sortFn = (transform, { reverse }) => (v1, v2) => {
 };
 
 export const courseFilters = StrictDict({
-  [FilterKeys.notEnrolled]: (course) => !course.enrollment.isEnrolled,
   [FilterKeys.done]: (course) => course.courseRun !== null && course.courseRun.isArchived,
   [FilterKeys.inProgress]: (course) => course.enrollment.hasStarted,
   [FilterKeys.notStarted]: (course) => !course.enrollment.hasStarted,
@@ -43,12 +42,12 @@ export const visibleList = (state, {
 
   if (filters.includes("done")) {
     courses.forEach(course => {
-        if (course.gradeData.isPassing && list.filter(item => item.course.courseName == course.course.courseName).length <= 0) {
-            list.push(course)
-        }
+      if (course.gradeData.isPassing && list.filter(item => item.course.courseName == course.course.courseName).length <= 0) {
+        list.push(course);
+      }
     });
   } else if (filters.includes("inProgress")) {
-      list = courses.filter(course => course.gradeData.isPassing != true || (!course.courseRun.endDate || new Date(course.courseRun.endDate) > new Date()));
+    list = courses.filter(course => course.gradeData.isPassing != true);
   }
 
   const pageNumber = simpleSelectors.pageNumber(state);
