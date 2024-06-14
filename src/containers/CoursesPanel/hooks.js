@@ -20,7 +20,7 @@ export const state = StrictDict({
  * @returns data for the CoursesPanel component
  */
 export const useCourseListData = (firstRun) => {
-  const filters = reduxHooks.useFilters();
+  let filters = reduxHooks.useFilters();
   if (firstRun) {
     filters = ['inProgress'];
     firstRun = false;
