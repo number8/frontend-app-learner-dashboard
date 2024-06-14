@@ -19,8 +19,12 @@ export const state = StrictDict({
  *
  * @returns data for the CoursesPanel component
  */
-export const useCourseListData = () => {
+export const useCourseListData = (firstRun) => {
   const filters = reduxHooks.useFilters();
+  if (firstRun) {
+    filters = ['inProgress'];
+    firstRun = false;
+  }
   const removeFilter = reduxHooks.useRemoveFilter();
   const pageNumber = reduxHooks.usePageNumber();
   const setPageNumber = reduxHooks.useSetPageNumber();
