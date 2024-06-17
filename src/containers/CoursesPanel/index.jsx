@@ -22,10 +22,10 @@ import './index.scss';
  * Also houses the NoCoursesView to display if the user hasn't enrolled in any courses.
  * @returns List of courses as CourseCards or empty state
 */
-export const CoursesPanel = ({firstRun}) => {
+export const CoursesPanel = () => {
   const { formatMessage } = useIntl();
   const hasCourses = reduxHooks.useHasCourses();
-  const courseListData = useCourseListData(firstRun);
+  const courseListData = useCourseListData();
   return (
     <div className="course-list-container">
       <div className="course-list-heading-container">

@@ -2,7 +2,7 @@ import React from 'react';
 
 import queryString from 'query-string';
 
-import { ListPageSize, SortKeys } from 'data/constants/app';
+import { ListPageSize, SortKeys, FirstRun } from 'data/constants/app';
 import { reduxHooks } from 'hooks';
 import { StrictDict } from 'utils';
 
@@ -19,11 +19,11 @@ export const state = StrictDict({
  *
  * @returns data for the CoursesPanel component
  */
-export const useCourseListData = (firstRun) => {
+export const useCourseListData = () => {
   let filters = reduxHooks.useFilters();
-  if (firstRun) {
+  if (FirstRun) {
     filters = ['inProgress'];
-    firstRun = false;
+    FirstRun = false;
   }
   const removeFilter = reduxHooks.useRemoveFilter();
   const pageNumber = reduxHooks.usePageNumber();

@@ -21,7 +21,6 @@ export const Dashboard = () => {
   const hasAvailableDashboards = reduxHooks.useHasAvailableDashboards();
   const initIsPending = reduxHooks.useRequestIsPending(RequestKeys.initialize);
   const showSelectSessionModal = reduxHooks.useShowSelectSessionModal();
-  let firstRun = true;
 
   return (
     <div id="dashboard-container" className="d-flex flex-column p-2 pt-0">
@@ -37,7 +36,7 @@ export const Dashboard = () => {
           ? (<LoadingView />)
           : (
             <DashboardLayout sidebar={hasCourses ? LoadedSidebar : NoCoursesSidebar}>
-              <CoursesPanel firstRun={firstRun} />
+              <CoursesPanel />
             </DashboardLayout>
           )}
       </div>
