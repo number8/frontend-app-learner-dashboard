@@ -2,7 +2,7 @@ import React from 'react';
 
 import queryString from 'query-string';
 
-import { ListPageSize, SortKeys, FirstRun } from 'data/constants/app';
+import { ListPageSize, SortKeys, FirstRun, SecondRun } from 'data/constants/app';
 import { reduxHooks } from 'hooks';
 import { StrictDict } from 'utils';
 
@@ -22,8 +22,11 @@ export const state = StrictDict({
 export const useCourseListData = () => {
   let filters = reduxHooks.useFilters();
   if (FirstRun) {
-    filters = ['inProgress'];
     FirstRun = false;
+    SecondRun = true;
+  } else if (SecondRun) {
+    filters = ['inProgress'];
+    SecondRun = false;
   }
   const removeFilter = reduxHooks.useRemoveFilter();
   const pageNumber = reduxHooks.usePageNumber();

@@ -16,5 +16,6 @@ export const FilterKeys = StrictDict({
 });
 
 export let FirstRun = true;
+export let SecondRun = false;
 
 export const ListPageSize = 25;
