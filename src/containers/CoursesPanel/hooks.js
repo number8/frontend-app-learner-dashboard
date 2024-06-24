@@ -21,6 +21,7 @@ export const state = StrictDict({
  */
 export const useCourseListData = () => {
   let filters = reduxHooks.useFilters();
+  // The if/else below was added to set the default filter to 'inProgress'
   if (FirstRun) {
     FirstRun = false;
     SecondRun = true;

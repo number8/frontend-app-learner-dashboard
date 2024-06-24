@@ -99,3 +99,10 @@ Reporting Security Issues
 -------------------------
 
 Please do not report security issues in public. Please email security@openedx.org.
+
+----------------------------
+
+N8 Changes
+----------
+
+At 'src\containers\CoursesPanel\hooks.js' added code to set default filter for Course List as 'inProgress'
